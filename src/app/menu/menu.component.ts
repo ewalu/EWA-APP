@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UlubioneService } from '../ulubione.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  liczbaulubionych: number;
+
+  constructor(private ulubione: UlubioneService) { 
+    ulubione.data$.subscribe(value => this.liczbaulubionych)
+  }
 
   ngOnInit() {
   }

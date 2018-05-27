@@ -26,6 +26,10 @@ import appRouting from './routing/my-routing';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { OdcinkiComponent } from './odcinki/odcinki.component';
 import {MatTableModule} from '@angular/material/table';
+import { MyDataPipe } from './my-data.pipe';
+import { PodsumowanieComponent } from './odcinki/podsumowanie/podsumowanie.component';
+import {MatDialogModule} from '@angular/material';
+import { UlubioneService } from './ulubione.service';
 
 
 @NgModule({
@@ -38,7 +42,9 @@ import {MatTableModule} from '@angular/material/table';
     InfoComponent,
     UlubioneComponent,
     StartComponent,
-    OdcinkiComponent
+    OdcinkiComponent,
+    MyDataPipe,
+    PodsumowanieComponent
   ],
   imports: [
     RouterModule.forRoot(appRouting),
@@ -55,9 +61,11 @@ import {MatTableModule} from '@angular/material/table';
     MatCardModule,
     MatSnackBarModule,
     MatMenuModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [UlubioneService],
+  bootstrap: [AppComponent],
+  entryComponents: [PodsumowanieComponent]
 })
 export class AppModule { }

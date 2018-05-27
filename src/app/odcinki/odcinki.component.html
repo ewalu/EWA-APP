@@ -1,13 +1,10 @@
 <app-menu></app-menu>
-<!--p>{{id}}</p-->
-
 <div class="example-container mat-elevation-z8">
     <!--div class="example-header">
       <mat-form-field>
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
       </mat-form-field>
     </div-->
-  
     <mat-table #table [dataSource]="odcinki">
   
       <!-- Position Column -->
@@ -25,8 +22,15 @@
       <!-- Weight Column -->
       <ng-container matColumnDef="data">
         <mat-header-cell *matHeaderCellDef> Data </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.airdate}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.airstamp | dataEmisji}} </mat-cell>
       </ng-container>
+
+      <ng-container matColumnDef="podsumowanie">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-fab (click)="summary(element)">info</button>
+          </mat-cell>
+        </ng-container>
   
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
