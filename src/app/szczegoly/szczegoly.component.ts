@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Show } from '../services/tv.models';
 import { Router } from '@angular/router';
+import { UlubioneService } from '../ulubione.service';
 
 @Component({
   selector: 'app-szczegoly',
@@ -11,7 +12,7 @@ export class SzczegolyComponent implements OnInit {
 
   @Input() film: Show;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private ulubione: UlubioneService) { }
 
   ngOnInit() {
   }
@@ -24,6 +25,9 @@ export class SzczegolyComponent implements OnInit {
       name: String(this.film.name)
     })
     this.router.navigate(['/odcinki', tmp]);*/
+  }
+  lubieTo(){
+    this.ulubione.dodajDoUlubionych(this.film);
   }
 
 }

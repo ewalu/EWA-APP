@@ -8,10 +8,10 @@ import { UlubioneService } from '../ulubione.service';
 })
 export class MenuComponent implements OnInit {
 
-  liczbaulubionych: number;
+  liczbaulubionych = 0;
 
   constructor(private ulubione: UlubioneService) { 
-    ulubione.data$.subscribe(value => this.liczbaulubionych)
+    ulubione.data$.subscribe(value => this.liczbaulubionych = value)
   }
 
   ngOnInit() {

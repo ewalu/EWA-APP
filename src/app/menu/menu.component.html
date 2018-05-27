@@ -21,5 +21,10 @@
       <span>O aplikacji</span>
     </button>
   </mat-menu>
+  <mat-icon *ngIf="liczbaulubionych===0" clas="example-icon">favorite_border</mat-icon>
+  <div *ngIf="liczbaulubionych > 0">
+    <mat-icon class="example-icon">favorite</mat-icon>
+    {{liczbaulubionych}}
+  </div>
 </mat-toolbar-row>
 </mat-toolbar>

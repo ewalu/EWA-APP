@@ -15,7 +15,7 @@ export class UlubioneService {
 
   dodajDoUlubionych(ulubiony: Show){
     this.ulubione.push(ulubiony);
-    this.data.next(this.ulubione.length)
+    this.subject.next(this.ulubione.length);
   }
 
 }
