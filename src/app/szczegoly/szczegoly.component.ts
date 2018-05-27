@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Show } from '../services/tv.models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-szczegoly',
@@ -10,9 +11,14 @@ export class SzczegolyComponent implements OnInit {
 
   @Input() film: Show;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  odcinki(){
+    const id = btoa(String(this.film.id));
+    this.router.navigate(['/odcinki', id]);
   }
 
 }

@@ -1,0 +1,39 @@
+<app-menu></app-menu>
+<!--p>{{id}}</p-->
+
+<div class="example-container mat-elevation-z8">
+    <!--div class="example-header">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+    </div-->
+  
+    <mat-table #table [dataSource]="odcinki">
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="sezon">
+        <mat-header-cell *matHeaderCellDef> Sezon </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.season}}/{{element.number}}</mat-cell>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="nazwa">
+        <mat-header-cell *matHeaderCellDef> Nazwa </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="data">
+        <mat-header-cell *matHeaderCellDef> Data </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.airdate}} </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+  
+
+<!--pre>
+  {{odcinki | json}}
+</pre-->

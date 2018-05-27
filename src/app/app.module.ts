@@ -24,6 +24,8 @@ import { StartComponent } from './start/start.component';
 import {RouterModule} from '@angular/router';
 import appRouting from './routing/my-routing';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { OdcinkiComponent } from './odcinki/odcinki.component';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MenuComponent,
     InfoComponent,
     UlubioneComponent,
-    StartComponent
+    StartComponent,
+    OdcinkiComponent
   ],
   imports: [
     RouterModule.forRoot(appRouting),
@@ -51,7 +54,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatSidenavModule,
     MatCardModule,
     MatSnackBarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
